@@ -1,0 +1,15 @@
+C:\CS 1400\lab-2-road-trip-JOSnow985\bin\Debug\net8.0\lab-2-road-trip-JOSnow985.exe
+C:\CS 1400\lab-2-road-trip-JOSnow985\bin\Debug\net8.0\lab-2-road-trip-JOSnow985.deps.json
+C:\CS 1400\lab-2-road-trip-JOSnow985\bin\Debug\net8.0\lab-2-road-trip-JOSnow985.runtimeconfig.json
+C:\CS 1400\lab-2-road-trip-JOSnow985\bin\Debug\net8.0\lab-2-road-trip-JOSnow985.dll
+C:\CS 1400\lab-2-road-trip-JOSnow985\bin\Debug\net8.0\lab-2-road-trip-JOSnow985.pdb
+C:\CS 1400\lab-2-road-trip-JOSnow985\obj\Debug\net8.0\lab-2-road-trip-JOSnow985.GeneratedMSBuildEditorConfig.editorconfig
+C:\CS 1400\lab-2-road-trip-JOSnow985\obj\Debug\net8.0\lab-2-road-trip-JOSnow985.AssemblyInfoInputs.cache
+C:\CS 1400\lab-2-road-trip-JOSnow985\obj\Debug\net8.0\lab-2-road-trip-JOSnow985.AssemblyInfo.cs
+C:\CS 1400\lab-2-road-trip-JOSnow985\obj\Debug\net8.0\lab-2-road-trip-JOSnow985.csproj.CoreCompileInputs.cache
+C:\CS 1400\lab-2-road-trip-JOSnow985\obj\Debug\net8.0\lab-2-road-trip-JOSnow985.sourcelink.json
+C:\CS 1400\lab-2-road-trip-JOSnow985\obj\Debug\net8.0\lab-2-road-trip-JOSnow985.dll
+C:\CS 1400\lab-2-road-trip-JOSnow985\obj\Debug\net8.0\refint\lab-2-road-trip-JOSnow985.dll
+C:\CS 1400\lab-2-road-trip-JOSnow985\obj\Debug\net8.0\lab-2-road-trip-JOSnow985.pdb
+C:\CS 1400\lab-2-road-trip-JOSnow985\obj\Debug\net8.0\lab-2-road-trip-JOSnow985.genruntimeconfig.cache
+C:\CS 1400\lab-2-road-trip-JOSnow985\obj\Debug\net8.0\ref\lab-2-road-trip-JOSnow985.dll
