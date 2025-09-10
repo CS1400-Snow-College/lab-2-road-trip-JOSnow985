@@ -20,23 +20,23 @@ while (dubDistanceMi <= 0) // Loop to make sure we get a useable number for late
     Console.WriteLine("miles to destination?");
     string stringDistanceMi = Console.ReadLine()!;
     //setting type for later use
-    int stringParsed;
+    bool stringParsed;
     if (double.TryParse(stringDistanceMi, out dubDistanceMi)) //Did we parse the string?
     //we did parse the string
     {
         if (dubDistanceMi > 0) //Is the distance a valid number?
         //it is a valid number
         {
-            stringParsed = 1;
+            stringParsed = true;
         }
         //it is not a valid number
-        else stringParsed = 0;
+        else stringParsed = false;
     }
     //we didn't parse the string
-    else stringParsed = 0;
+    else stringParsed = false;
 
     //Now check if the string was parsed, if it was, while loop continues and exits
-    if (stringParsed == 1) continue;
+    if (stringParsed == true) continue;
     //If it wasn't, clear and add a message explaining it didn't and reset loop
     else
     {
