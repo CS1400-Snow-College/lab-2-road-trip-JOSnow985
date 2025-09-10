@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("lab-2-road-trip-JOSnow985")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1944ce64197e0ab28efad4e8267eebd957a42b88")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6e6323acff7fd3a44ef4dc6fa1a7344529bc63e9")]
 [assembly: System.Reflection.AssemblyProductAttribute("lab-2-road-trip-JOSnow985")]
 [assembly: System.Reflection.AssemblyTitleAttribute("lab-2-road-trip-JOSnow985")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
