@@ -139,6 +139,88 @@ while (dubDollarPerGallon <= 0)
     }
 }
 
+
+// Math Time
+double totalTimeDriving = dubDistanceMi / dubAvgSpeed;
+int hoursDriving = (int)totalTimeDriving; //casting operator to go from double to int
+int minutesDriving = (int)Math.Round((totalTimeDriving - hoursDriving) * 60); //Left over time to minutes
+if (minutesDriving == 60) //don't want it to say 60 minutes!
+{
+    hoursDriving += 1;
+    minutesDriving = 0;
+}
+
+double fuelNeeded = dubDistanceMi / dubMPG * 2;
+double tankRange = dubMPG * dubFuelMax;
+int fuelStops = (int)Math.Round(fuelNeeded / dubFuelMax);
+
+double fuelCostPay = fuelNeeded * dubDollarPerGallon;
+
+int riders = 1 + intPassengers;
+
+double costPerson = fuelCostPay / riders;
+double costMile = fuelCostPay / dubDistanceMi;
+double costHour = fuelCostPay / totalTimeDriving;
+
+double songLength = 3.5;
+int songsNeeded = (int)Math.Round(totalTimeDriving * 60 / songLength);
+// Results Time
+Console.Clear();
+
+string driverHeader = "Driver:";
+Console.WriteLine($"{driverHeader,-35}{driverName}");
+
+string currencyHeader = "Currency:";
+Console.WriteLine($"{currencyHeader,-35}{stringCurrency}");
+Console.WriteLine();
+
+string distanceHeader = "Distance (miles):";
+Console.WriteLine($"{distanceHeader,-35}{dubDistanceMi:#.##}");
+
+string avgSpeedHeader = "Average Speed (mph):";
+Console.WriteLine($"{avgSpeedHeader,-35}{dubAvgSpeed:#.##}");
+
+string timeDrivingHeader = "Time Driving:";
+Console.WriteLine($"{timeDrivingHeader,-35}{hoursDriving}H {minutesDriving}M");
+Console.WriteLine();
+
+string mpgHeader = "Vehicle Miles per Gallon:";
+Console.WriteLine($"{mpgHeader,-35}{dubMPG:#.##}");
+
+string fuelNeededHeader = "Fuel Needed (for a round trip!):";
+Console.WriteLine($"{fuelNeededHeader,-35}{fuelNeeded:#.##} gallons");
+
+string tankRangeHeader = "Range per fuel tank:";
+Console.WriteLine($"{tankRangeHeader,-35}{tankRange:#.##} miles");
+
+string estFuelStopHeader = "Estimated Fuel Stops:";
+Console.WriteLine($"{estFuelStopHeader,-35}{fuelStops}");
+Console.WriteLine();
+
+string pricePerGallonHeader = "Gas Price per Gallon:";
+Console.WriteLine($"{pricePerGallonHeader,-35}${dubDollarPerGallon:#.##}");
+
+string fuelCostHeader = "Fuel Cost:";
+Console.WriteLine($"{fuelCostHeader,-35}${fuelCostPay:#.00}");
+
+string ridersHeader = "Riders (split):";
+Console.WriteLine($"{ridersHeader,-35}{riders}");
+
+string costPersonHeader = "Cost per person:";
+Console.WriteLine($"{costPersonHeader,-35}${costPerson:#.00}");
+
+string costMileHeader = "Cost per mile:";
+Console.WriteLine($"{costMileHeader,-35}${costMile:#0.00}");
+
+string costHourHeader = "Cost per driving hour:";
+Console.WriteLine($"{costHourHeader,-35}${costHour:#.00}");
+Console.WriteLine();
+
+string songLengthHeader = "Average song length (min):";
+Console.WriteLine($"{songLengthHeader,-35}{songLength:#.##}");
+
+string songsNeededHeader = "Suggested Playlist Length:";
+Console.WriteLine($"{songsNeededHeader,-35}{songsNeeded} songs");
 /*
 Average song length and songs needed for the playlist
 could be cool to have a "this is how many times you could listen to this"
