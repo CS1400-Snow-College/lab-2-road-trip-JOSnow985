@@ -1,4 +1,6 @@
-﻿Console.Clear();
+﻿using System.ComponentModel.DataAnnotations;
+
+Console.Clear();
 Console.Title = "Trip Planner!";
 
 Console.Write("Welcome to Jaden's Trip Planner! Press any key to get started!"); //introduction to trip planner, use Write with a space in the string to match example
@@ -9,7 +11,7 @@ Console.WriteLine("What's the driver's name?"); //name of person driving
 string driverName = Console.ReadLine()!;
 Console.Clear();
 
-Console.WriteLine("What's your destination?");
+Console.WriteLine($"What is {driverName}'s destination?");
 string destinationName = Console.ReadLine()!;
 
 // Using this for the while loops in case we need to change the message
@@ -19,7 +21,7 @@ Console.Clear();
 double dubDistanceMi = 0; // Have to set the type before the block so we can use it later!
 while (dubDistanceMi <= 0) // Loop to make sure we get a useable number for later
 {
-    Console.WriteLine("How far away, in miles, is your destination?");
+    Console.WriteLine($"How many miles to get to {destinationName}?");
     string stringDistanceMi = Console.ReadLine()!;
     //setting type for later use
     bool stringParsed;
@@ -43,7 +45,7 @@ Console.Clear();
 double dubAvgSpeed = 0; // Maybe add a number that gives a message that you're gonna be going really fast
 while (dubAvgSpeed <= 0)
 {
-    Console.WriteLine("What will your average speed be? (mph)");
+    Console.WriteLine($"How fast will {driverName} be driving, on average? (mph)");
     string stringAvgSpeed = Console.ReadLine()!;
     bool stringParsed;
     if (double.TryParse(stringAvgSpeed, out double parseOut) && parseOut > 0) stringParsed = true;
@@ -61,7 +63,7 @@ Console.Clear();
 double dubMPG = 0;
 while (dubMPG <= 0)
 {
-    Console.WriteLine("What kind of gas mileage does your ride get? (mi/gal)");
+    Console.WriteLine($"How many MPG does {driverName}'s vehicle get?");
     string stringMPG = Console.ReadLine()!;
 
     bool stringParsed;
@@ -80,7 +82,7 @@ Console.Clear();
 double dubFuelMax = 0;
 while (dubFuelMax <= 0)
 {
-    Console.WriteLine("How many gallons of fuel does your vehicle hold?");
+    Console.WriteLine($"How many gallons of fuel does {driverName}'s vehicle hold?");
     string stringFuelMax = Console.ReadLine()!;
 
     bool stringParsed;
@@ -99,7 +101,7 @@ Console.Clear();
 int intPassengers = -1; // People can ride alone!
 while (intPassengers < 0)
 {
-    Console.WriteLine("How many passengers will you be taking? Not including the driver, of course!");
+    Console.WriteLine($"How many passengers will be going with {driverName} on the trip?");
     string stringPassengers = Console.ReadLine()!;
 
     bool stringParsed;
@@ -116,7 +118,7 @@ while (intPassengers < 0)
 }
 
 Console.Clear();
-if (intPassengers == 0) Console.WriteLine("Riding Solo!");
+if (intPassengers == 0) Console.WriteLine($"{driverName}'s Riding Solo!");
 Console.WriteLine("What currency do you prefer to use? ($, £, ¥, €)");
 string stringCurrency = Console.ReadLine()!;
 
@@ -154,7 +156,19 @@ double fuelNeeded = dubDistanceMi / dubMPG * 2;
 double tankRange = dubMPG * dubFuelMax;
 int fuelStops = (int)Math.Round(fuelNeeded / dubFuelMax);
 
-double fuelCostPay = fuelNeeded * dubDollarPerGallon;
+double currencyConverted;
+double dubPoundPerGallon = dubDollarPerGallon * 0.74;
+double dubYenPerGallon = dubDollarPerGallon * 147.39;
+double dubEuroPerGallon = dubDollarPerGallon * 0.85;
+
+// Trying to use what currency is specified otherwise default to USD
+if (stringCurrency == "$") currencyConverted = dubDollarPerGallon;
+else if (stringCurrency == "£") currencyConverted = dubPoundPerGallon;
+else if (stringCurrency == "¥") currencyConverted = dubYenPerGallon;
+else if (stringCurrency == "€") currencyConverted = dubEuroPerGallon;
+else currencyConverted = dubDollarPerGallon;
+
+double fuelCostPay = fuelNeeded * currencyConverted;
 
 int riders = 1 + intPassengers;
 
@@ -198,22 +212,22 @@ Console.WriteLine($"{estFuelStopHeader,-35}{fuelStops}");
 Console.WriteLine();
 
 string pricePerGallonHeader = "Gas Price per Gallon:";
-Console.WriteLine($"{pricePerGallonHeader,-35}${dubDollarPerGallon:#.##}");
+Console.WriteLine($"{pricePerGallonHeader,-35}{stringCurrency}{currencyConverted:#.##}");
 
 string fuelCostHeader = "Fuel Cost:";
-Console.WriteLine($"{fuelCostHeader,-35}${fuelCostPay:#.00}");
+Console.WriteLine($"{fuelCostHeader,-35}{stringCurrency}{fuelCostPay:#.00}");
 
 string ridersHeader = "Riders (split):";
 Console.WriteLine($"{ridersHeader,-35}{riders}");
 
 string costPersonHeader = "Cost per person:";
-Console.WriteLine($"{costPersonHeader,-35}${costPerson:#.00}");
+Console.WriteLine($"{costPersonHeader,-35}{stringCurrency}{costPerson:#.00}");
 
 string costMileHeader = "Cost per mile:";
-Console.WriteLine($"{costMileHeader,-35}${costMile:#0.00}");
+Console.WriteLine($"{costMileHeader,-35}{stringCurrency}{costMile:#0.00}");
 
 string costHourHeader = "Cost per driving hour:";
-Console.WriteLine($"{costHourHeader,-35}${costHour:#.00}");
+Console.WriteLine($"{costHourHeader,-35}{stringCurrency}{costHour:#.00}");
 Console.WriteLine();
 
 string songLengthHeader = "Average song length (min):";
@@ -221,6 +235,7 @@ Console.WriteLine($"{songLengthHeader,-35}{songLength:#.##}");
 
 string songsNeededHeader = "Suggested Playlist Length:";
 Console.WriteLine($"{songsNeededHeader,-35}{songsNeeded} songs");
+
 /*
 Average song length and songs needed for the playlist
 could be cool to have a "this is how many times you could listen to this"
